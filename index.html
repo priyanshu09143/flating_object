@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flating-Object</title>
+</head>
+<body>
+    
+
+    <script>
+        let user ={
+            "name":"karan",
+            "address":{
+                "personal":"delhi",
+                "area":"CivilLine"
+            },
+            "office":{
+                "state":"mumbai",
+                "area":{
+                    "landmark":"Bandra"
+                }
+            }
+        }
+
+
+        let parent = "user";
+        function sortObject(obj,parent){
+            for(let keys in obj){
+                if(typeof obj[keys] === "object"){
+                    sortObject(obj[keys],parent+"_"+keys)
+                }
+                else{
+                    console.log(parent+"_"+keys+":"+obj[keys])
+                }} }
+        sortObject(user,parent);
+        
+
+    </script>
+</body>
+</html>
+
+<!-- let user = {
+    "user_name":"karan",
+    "user_adderss_personal":"delhi"
+    "user_adderss_area":"CivilLine"
+    "user_office_state":"mumbai"
+    "user_office_area_Landmark":"bandra"
+} -->
